@@ -1,8 +1,9 @@
-
 <script>
   import Nav from './components/Nav.svelte'
   let name = "Maïli-Anna";
   let likes = 0
+  let a = 1;
+  let b = 2;
   $: doubledLiked = likes * 2
 
   function btnLikesHandler () {
@@ -12,6 +13,7 @@
 
 <main>
   <h1>Hello {name.toUpperCase()}!</h1>
+  <input type="text" bind:value={name}>
   <p>
     Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
     how to build Svelte apps.
@@ -19,6 +21,11 @@
   <Nav/>
   <button on:click={btnLikesHandler}>Liked {likes} {likes < 2 ? 'Time' : 'Times'}</button>
   <p>Likes * 2 is {doubledLiked}</p>
+
+  <input type="range" bind:value={a} min=0 max=10>
+  <input type="range" bind:value={b} min=0 max=10>
+
+  <p>{a} + {b} = {a + b}</p>
 </main>
 
 <style lang="scss">
